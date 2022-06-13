@@ -16,11 +16,12 @@
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.shoppinglist</ApplicationId>
-        <ApplicationIdGuid>07C640F3-FB25-449B-B733-DE36DEFAE427</ApplicationIdGuid>
+        <ApplicationIdGuid>27A06093-6BB4-4A39-B62F-322257970643</ApplicationIdGuid>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
+
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
