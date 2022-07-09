@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ShoppingList.ViewModels"
+             x:DataType="viewModels:SettingsViewModel"
+             x:Class="ShoppingList.SettingsPage"
+             Title="{Binding Name}"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <!-- Debugging purpose
+    With this we can link the ViewModel here temporarely to get Intelisense working properly. 
+    Insert them into ContentPage attributes
+        xmlns:vm="clr-namespace:ShoppingList.ViewModels"
+        x:DataType="vm:ImagesViewModel"
+    -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_keyboard_backspace.png" Order="Primary" Priority="0" Clicked="HomeButton" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- Datum -->
+            <Label Padding="10,0,0,0" Grid.Row="0" Grid.Column="0" Text="Datum: " VerticalOptions="Center" FontAttributes="Bold" FontSize="24" HorizontalOptions="Start" />
+            <ContentView Padding="0,0,10,0" Grid.Row="0" Grid.Column="1" WidthRequest="180">
+                <DatePicker MinimumDate="{Binding MinDate}" MaximumDate="{Binding MaxDate}" Date="{Binding Date}" MinimumWidthRequest="160" HorizontalOptions="End" FontAttributes="Bold, Italic" FontSize="24" Format="dd.MM.yyyy"/>
+            </ContentView>
+            <!-- Namen -->
+            <Label Padding="10,0,0,0" Grid.Row="1" Grid.Column="0" Text="Namen: " VerticalOptions="Center" FontAttributes="Bold" FontSize="24" HorizontalOptions="Start" />
+            <ContentView Padding="0,0,10,0" Grid.Row="1" Grid.Column="1" WidthRequest="180">
+                <Entry Keyboard="Chat" HorizontalOptions="End" FontAttributes="Bold, Italic" FontSize="24" Text="{Binding Name}" Placeholder="Namen" MinimumWidthRequest="160" MaxLength="30" />
+            </ContentView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

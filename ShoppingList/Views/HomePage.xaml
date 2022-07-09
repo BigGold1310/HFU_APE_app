@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ShoppingList.ViewModels"
+             x:DataType="viewModels:HomeViewModel"
+             x:Class="ShoppingList.HomePage"
+             Title="{Binding Name}"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_settings.png" Order="Primary" Priority="0" Clicked="SettingsButton"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView Orientation="Vertical" VerticalOptions="Start" HorizontalScrollBarVisibility="Never">
+        <StackLayout>
+            <!-- Image -->
+            <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFill">
+                <Image.Source>
+                    <UriImageSource Uri="{Binding RandomImageUrl}" CachingEnabled="False"/>
+                </Image.Source>
+            </Image>
+            <!-- Namen -->
+            <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0" HorizontalOptions="Center">
+                <Label Text="{Binding Name}" SemanticProperties.HeadingLevel="Level1" FontAttributes="Bold" FontSize="24" />
+                <Label Text=" - " SemanticProperties.HeadingLevel="Level1" FontAttributes="Bold" FontSize="24" />
+                <Label Text="{Binding Date}" SemanticProperties.HeadingLevel="Level1" FontAttributes="Bold" FontSize="24" />
+            </StackLayout>
+            <!-- Datum -->
+            <StackLayout Margin="0, 20, 0, 0">
+                <Label Text="Zusammen seit..." MinimumWidthRequest="160" SemanticProperties.HeadingLevel="Level2" HorizontalOptions="Center" FontAttributes="Bold" FontSize="22" />
+                <Label Margin="0, 5, 0, 0" Text="{Binding Days, StringFormat='seit {0:F0} Tagen'}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="18" />
+                <Label Text="{Binding Hours, StringFormat='seit {0:F0} Stunden'}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="18" />
+                <Label Text="{Binding Minutes, StringFormat='seit {0:F0} Minuten'}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="18" />
+                <Label Text="{Binding Seconds, StringFormat='seit {0:F0} Sekunden'}" HorizontalOptions="Center" FontAttributes="Bold" FontSize="18" />
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

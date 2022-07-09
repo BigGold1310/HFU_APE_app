@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShoppingList.MainPage">
-			 
+             x:Class="ShoppingList.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ScrollView>
         <VerticalStackLayout 
             Spacing="25" 
@@ -11,30 +11,22 @@
 
             <Image
                 Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                SemanticProperties.Description=".NET construction Robot"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
                 
             <Label 
-                Text="Hello, World!"
+                Text="Under construction"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
             
             <Label 
-                Text="Welcome to .NET Multi-platform App UI"
+                Text="Feature comming soon!"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.Description="Feature comming soon!"
                 FontSize="18"
                 HorizontalOptions="Center" />
-
-            <Button 
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
         </VerticalStackLayout>
     </ScrollView>
  
