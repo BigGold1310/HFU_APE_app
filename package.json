@@ -1,0 +1,22 @@
+{
+  "name": "hfu_ape_app api server",
+  "version": "1.0.0",
+  "description": "used to provide a test/mock api for the app development",
+  "main": "",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigGold1310/HFU_APE_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BigGold1310/HFU_APE_app/issues"
+  },
+  "homepage": "https://github.com/BigGold1310/HFU_APE_app#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
