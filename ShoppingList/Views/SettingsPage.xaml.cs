@@ -2,7 +2,7 @@
 using ShoppingList.Context;
 using ShoppingList.ViewModels;
 
-namespace ShoppingList;
+namespace ShoppingList.Views;
 
 public partial class SettingsPage : ContentPage
 {
@@ -10,10 +10,5 @@ public partial class SettingsPage : ContentPage
     {
         InitializeComponent();
         BindingContext = new SettingsViewModel(contextStore);
-    }
-
-    private async void HomeButton(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//home");
     }
 }

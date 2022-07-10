@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using ShoppingList.ViewModels;
 
-namespace ShoppingList;
+namespace ShoppingList.Views;
 
 public partial class ImagesPage : ContentPage
 {

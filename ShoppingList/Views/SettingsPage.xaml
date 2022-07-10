@@ -3,18 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ShoppingList.ViewModels"
              x:DataType="viewModels:SettingsViewModel"
-             x:Class="ShoppingList.SettingsPage"
+             x:Class="ShoppingList.Views.SettingsPage"
              Title="{Binding Name}"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <!-- Debugging purpose
-    With this we can link the ViewModel here temporarely to get Intelisense working properly. 
-    Insert them into ContentPage attributes
-        xmlns:vm="clr-namespace:ShoppingList.ViewModels"
-        x:DataType="vm:ImagesViewModel"
-    -->
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="icon_keyboard_backspace.png" Order="Primary" Priority="0" Clicked="HomeButton" />
-    </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid>
             <Grid.ColumnDefinitions>

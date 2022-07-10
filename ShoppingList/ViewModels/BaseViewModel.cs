@@ -1,11 +1,12 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using ShoppingList.Helpers;
 
 namespace ShoppingList.ViewModels;
 
-public abstract class BaseViewModel : MyPropertyChanged, INotifyPropertyChanged
+public abstract class BaseViewModel : MyPropertyChanged
 {
     public bool IsBusy
     {

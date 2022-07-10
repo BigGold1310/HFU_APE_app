@@ -1,4 +1,4 @@
-﻿namespace ShoppingList;
+﻿namespace ShoppingList.Views;
 
 public partial class MainPage : ContentPage
 {

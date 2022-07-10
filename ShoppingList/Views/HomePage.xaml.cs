@@ -2,7 +2,7 @@
 using ShoppingList.Context;
 using ShoppingList.ViewModels;
 
-namespace ShoppingList;
+namespace ShoppingList.Views;
 
 public partial class HomePage : ContentPage
 {
@@ -16,6 +16,6 @@ public partial class HomePage : ContentPage
     
     private async void SettingsButton(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//settings");
+        await Shell.Current.GoToAsync("/settings");
     }
 }
