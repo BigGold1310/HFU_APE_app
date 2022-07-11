@@ -10,5 +10,5 @@ public class Promise
     
     public string Title { get; set; }
     public string Text { get; set; }
-    public DateTime Created { get; set; }
+    public DateTime? Created { get; set; }
 }

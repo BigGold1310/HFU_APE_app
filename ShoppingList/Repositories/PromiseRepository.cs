@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using ShoppingList.Models;
 using SQLite;
 
@@ -30,10 +31,8 @@ public class PromiseRepository
         int result = 0;
         try
         {
-            // enter this line
             Init();
 
-            // enter this line
             result = conn.Insert(promise);
             if (result != 1)
             {
@@ -47,27 +46,27 @@ public class PromiseRepository
 
     }
 
-    public List<Promise> GetAll()
+    public ObservableCollection<Promise> GetAll()
     {
         try
         {
             Init();
-            return conn.Table<Promise>().ToList();
+            return new ObservableCollection<Promise>(conn.Table<Promise>().ToList());
         }
         catch (Exception ex)
         {
             StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
         }
 
-        return new List<Promise>();
+        return new ObservableCollection<Promise>();
     }
     
-    public Promise Get()
+    public Promise Get(int id)
     {
         try
         {
             Init();
-            return conn.Table<Promise>().ToList().First();
+            return conn.Table<Promise>().FirstOrDefault(p => p.Id == id);
         }
         catch (Exception ex)
         {
@@ -77,18 +76,40 @@ public class PromiseRepository
         return new Promise();
     }
 
-    public Promise Update(Promise promise)
+    public void Update(Promise promise)
     {
-        return new Promise();
+        int result = 0;
+        try
+        {
+            Init();
+            
+            result = conn.Update(promise);
+            if (result != 1)
+            {
+                throw new Exception("Couldn't be updated for unknown reasons");
+            } 
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+        }
     }
 
     public void Delete(int id)
     {
-        
+        try
+        {
+            Init();
+            conn.Table<Promise>().Delete(p => p.Id == id);
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+        }
     }
 
     public void Deconstruct()
     {
-        this.conn.Close();
+        conn.Close();
     }
 }

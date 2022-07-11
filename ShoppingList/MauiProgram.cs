@@ -10,10 +10,9 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
-        // Repositories
-        string dbPath = FileAccessHelper.GetLocalFilePath("promise.db3");
-        builder.Services.AddTransient<PromiseRepository>(s => ActivatorUtilities.CreateInstance<PromiseRepository>(s, dbPath));
         
+        string dbPath = FileAccessHelper.GetLocalFilePath("promise.db3");
+        builder.Services.AddSingleton<PromiseRepository>(s => ActivatorUtilities.CreateInstance<PromiseRepository>(s, dbPath));
         builder.Services.AddSingleton<IContextStore, ContextStore>();
         builder.Services.AddTransient<HomePage>();
         builder.Services.AddTransient<SettingsPage>();

@@ -7,9 +7,17 @@ namespace ShoppingList.Views;
 
 public partial class PromisePage : ContentPage
 {
+    private readonly PromiseViewModel _promiseViewModel;
     public PromisePage(PromiseRepository promiseRepository, IContextStore contextStore)
     {
         InitializeComponent();
-        BindingContext = new PromiseViewModel(promiseRepository, contextStore);
+        _promiseViewModel = new PromiseViewModel(promiseRepository, contextStore);
+        BindingContext = _promiseViewModel;
+    }
+
+    protected override void OnAppearing()
+    {
+        _promiseViewModel.Init();
+        base.OnAppearing();
     }
 }

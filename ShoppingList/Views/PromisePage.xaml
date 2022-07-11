@@ -1,20 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShoppingList.Views.PromisePage"
+             xmlns:viewModels="clr-namespace:ShoppingList.ViewModels"
+             x:DataType="viewModels:PromiseViewModel"
+             Title="{Binding Title}"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
     <ScrollView>
-        <VerticalStackLayout 
-            Spacing="25" 
-            Padding="30,0" 
-            VerticalOptions="Center">
+        <StackLayout Padding="10, 15, 10, 15">
+            <Entry Text="{Binding PromiseTitle, Mode=TwoWay}" Placeholder="Title" FontSize="20" />
+            <Label Text="{Binding PromiseTitleValidation}" TextColor="Red" HorizontalTextAlignment="Center"
+                   FontSize="16" />
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description=".NET construction Robot"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-        </VerticalStackLayout>
+            <Editor Text="{Binding PromiseText, Mode=TwoWay}" Placeholder="Text" FontSize="20" WidthRequest="300"
+                    MinimumWidthRequest="150" AutoSize="TextChanges" />
+            <Label Text="{Binding PromiseTextValidation}" TextColor="Red" HorizontalTextAlignment="Center"
+                   FontSize="16" />
+
+            <Button Text="Save"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:PromiseViewModel}}, Path=SaveCommand}" />
+        </StackLayout>
     </ScrollView>
- 
 </ContentPage>

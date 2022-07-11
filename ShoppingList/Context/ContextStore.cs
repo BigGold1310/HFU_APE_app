@@ -1,4 +1,6 @@
+using System.Collections.ObjectModel;
 using ShoppingList.Helpers;
+using ShoppingList.Models;
 
 namespace ShoppingList.Context;
 
@@ -35,4 +37,7 @@ public class ContextStore : MyPropertyChanged, IContextStore
             RaisePropertyChanged();
         }
     }
+
+    public Promise Promise { get; set; }
+    
 }

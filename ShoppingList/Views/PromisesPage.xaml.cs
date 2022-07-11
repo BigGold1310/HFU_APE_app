@@ -1,13 +1,22 @@
-﻿using ShoppingList.Repositories;
+﻿using ShoppingList.Context;
+using ShoppingList.Repositories;
 using ShoppingList.ViewModels;
 
 namespace ShoppingList.Views;
 
 public partial class PromisesPage : ContentPage
 {
-    public PromisesPage(PromiseRepository promiseRepository)
+    private readonly PromisesViewModel _promisesViewModel;
+    public PromisesPage(PromiseRepository promiseRepository, IContextStore contextStore)
     {
         InitializeComponent();
-        BindingContext = new PromisesViewModel(promiseRepository);
+        _promisesViewModel = new PromisesViewModel(promiseRepository, contextStore);
+        BindingContext = _promisesViewModel;
+    }
+
+    protected override void OnAppearing()
+    {
+        _promisesViewModel.Reload();
+        base.OnAppearing();
     }
 }
